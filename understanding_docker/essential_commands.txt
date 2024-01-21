@@ -1,0 +1,4 @@
+- Building image: docker build ./understanding_docker/ -t test:pandas
+
+- Running container: docker run -it test:pandas
+- Running container with argument: docker run -it test:pandas 2024-01-01

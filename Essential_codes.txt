@@ -1,2 +1,0 @@
-
-- Main repository : https://github.com/DataTalksClub/data-engineering-zoomcamp
