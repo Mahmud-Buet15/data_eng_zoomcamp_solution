@@ -3,3 +3,7 @@ understanding_docker/ny_taxi_postgres_data/
 homeworks/homework_01/ny_taxi_postgres_data/
 homeworks/homework_01/pgadmin/
 homeworks/homework_01/credentials.py
+understanding_terraform/keys/
+understanding_terraform/.terraform/
+understanding_terraform/.terraform*
+understanding_terraform/*.tfstate
