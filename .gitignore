@@ -1,1 +1,5 @@
 understanding_docker/ny_taxi_postgres_data/
+.data_eng_zoomcamp_env
+homeworks/homework_01/ny_taxi_postgres_data/
+homeworks/homework_01/pgadmin/
+homeworks/homework_01/credentials.py
