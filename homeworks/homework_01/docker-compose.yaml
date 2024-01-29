@@ -12,6 +12,11 @@ services:
        - ./ny_taxi_postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "ny_taxi", "-U", "mahmud" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
 
     
   pgadmin:

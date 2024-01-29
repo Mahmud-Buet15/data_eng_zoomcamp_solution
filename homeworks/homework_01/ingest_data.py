@@ -110,4 +110,4 @@ if __name__ == '__main__':
     url="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-09.csv.gz"
     compressed_file_name="green_tripdata_2019-09.csv.gz"
     table_name="ny_green_taxi_tripdata"                    
-    # insert_taxi_trip_data_in_db(url,compressed_file_name,table_name,db_engine)   #inserting taxi trip data to database
+    insert_taxi_trip_data_in_db(url,compressed_file_name,table_name,db_engine)   #inserting taxi trip data to database
