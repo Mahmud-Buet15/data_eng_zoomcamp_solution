@@ -15,7 +15,10 @@ export GOOGLE_CREDENTIALS='/home/mahmud/Desktop/personal_tasks/data_eng_zoomcamp
 ### Check changes to new infra plan
 terraform plan 
 
-### Apply the infra plan
+### Apply the infra plan (contents of main.tf file)
 terraform apply 
+
+### Destroy the infra plan (contents of main.tf file)
+terraform destroy 
 
 
