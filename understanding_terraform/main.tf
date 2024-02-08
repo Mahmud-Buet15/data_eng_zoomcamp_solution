@@ -9,14 +9,19 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project = "terraform-demo-project-412717"
-  region  = "us-central1"
+  credentials = var.credentials
+  project = var.project_name
+  region  = var.region
+}
+
+resource "google_bigquery_dataset" "demo_dataset" {
+  dataset_id                  = var.bq_dataset_name
 }
 
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "terraform-demo-project-412717-terra-bucket"   #must be unique for all over GCP
-  location      = "US"
+  name          = var.gcs_bucket_name   #must be unique for all over GCP
+  location      = var.location_name
   force_destroy = true
 
 
