@@ -8,7 +8,9 @@ understanding_terraform/.terraform/
 understanding_terraform/.terraform*
 understanding_terraform/*.tfstate
 
-
+understanding_airflow/logs/
+understanding_airflow/plugins
+understanding_airflow/.env
 
 # Local .terraform directories
 **/.terraform/*
