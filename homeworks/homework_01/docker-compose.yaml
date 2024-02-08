@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: ny_taxi
     volumes:
-       - ./ny_taxi_postgres_data:/var/lib/postgresql/data
+       - ./ny_taxi_postgres_data:/var/lib/postgresql/data:rw           #adding read and write access to the volume
     ports:
       - "5432:5432"
     healthcheck:
