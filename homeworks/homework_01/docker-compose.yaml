@@ -8,6 +8,7 @@ services:
       POSTGRES_USER: mahmud
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: ny_taxi
+    user: '$UID:$GID'
     volumes:
        - ./ny_taxi_postgres_data:/var/lib/postgresql/data:rw           #adding read and write access to the volume
     ports:
@@ -26,7 +27,8 @@ services:
       PGADMIN_DEFAULT_EMAIL: "mahmud@admin.com" 
       PGADMIN_DEFAULT_PASSWORD: pgadmin
       PGADMIN_CONFIG_SERVER_MODE: 'False'
+    user: '$UID:$GID'                         # this fixed the permission denied error
     volumes:
-       - ./pgadmin:/var/lib/pgadmin
+       - ./pgadmin:/var/lib/pgadmin:rw  #adding read and write access to the volume
     ports:
       - 8080:80
