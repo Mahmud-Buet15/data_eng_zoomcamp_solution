@@ -10,6 +10,11 @@ from google.cloud import storage
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
 import pyarrow.csv as pv
 import pyarrow.parquet as pq
+import datetime
+
+current_time = datetime.datetime.now()
+formatted_time = current_time.strftime('%Y_%m_%d_%H_%M')
+
 
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")    #getting an environment variable
 BUCKET = os.environ.get("GCP_GCS_BUCKET")        # bucket need to be available in GCP
@@ -76,7 +81,7 @@ with DAG(
     
     uncompress_dataset_task = BashOperator(
         task_id="uncompress_dataset_task",
-        bash_command=f"gunzip {path_to_local_home}/{dataset_file}.gz"
+        bash_command=f"gunzip -f {path_to_local_home}/{dataset_file}.gz"    # -f overwrites the file
     )
 
     format_to_parquet_task = PythonOperator(
@@ -104,7 +109,7 @@ with DAG(
             "tableReference": {
                 "projectId": PROJECT_ID,
                 "datasetId": BIGQUERY_DATASET,
-                "tableId": "external_table",
+                "tableId": f"external_table_{formatted_time}",
             },
             "externalDataConfiguration": {
                 "sourceFormat": "PARQUET",

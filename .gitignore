@@ -8,10 +8,10 @@ understanding_terraform/.terraform/
 understanding_terraform/.terraform*
 understanding_terraform/*.tfstate
 
-understanding_airflow/logs/
-understanding_airflow/dags/__pycache__
-understanding_airflow/plugins
-understanding_airflow/.env
+understanding_airflow/data_pipeline_gcp/logs/
+understanding_airflow/data_pipeline_gcp/dags/__pycache__
+understanding_airflow/data_pipeline_gcp/plugins
+understanding_airflow/data_pipeline_gcp/.env
 
 # Local .terraform directories
 **/.terraform/*
