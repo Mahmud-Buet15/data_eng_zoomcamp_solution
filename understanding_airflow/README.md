@@ -10,7 +10,7 @@ The base Airflow Docker image won't work with GCP, so we need to customize it to
 ## Setting up airflow locally
 
 ### Pre-requisites
-- This tutorial assumes that the service account credentials JSON file is named google_credentials.json and stored in `$HOME/.google/credentials/`. Copy and rename your credentials file to the required path.
+- This tutorial assumes that the service account credentials JSON file is named **google_credentials.json** and stored in `$HOME/.google/credentials/`. Copy and rename your credentials file to the required path.
 - `docker-compose` should be at least version v2.x+ and Docker Engine should have **at least 5GB of RAM** available, ideally 8GB. On Docker Desktop this can be changed in `Preferences > Resources`.
 
 ### Managing Google cloud credentials
@@ -27,3 +27,6 @@ The base Airflow Docker image won't work with GCP, so we need to customize it to
 - Create the containers
     - `docker compose up` or `docker-compose up`
     - `docker compose up -d` or `docker-compose up -d`    [detached mode]
+
+- Remove the containers
+    - `docker compose down` or `docker-compose down`

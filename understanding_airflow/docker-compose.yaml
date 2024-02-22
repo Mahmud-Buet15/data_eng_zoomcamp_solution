@@ -74,7 +74,7 @@ x-airflow-common:
       condition: service_healthy
 
 services:
-  postgres:
+  postgres:    #for storing metadata of airflow
     image: postgres:13
     container_name: airflow_postgres_container
     environment:
