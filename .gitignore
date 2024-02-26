@@ -11,7 +11,14 @@ understanding_terraform/*.tfstate
 understanding_airflow/data_pipeline_gcp/logs/
 understanding_airflow/data_pipeline_gcp/dags/__pycache__
 understanding_airflow/data_pipeline_gcp/plugins
-understanding_airflow/data_pipeline_gcp/.env
+# understanding_airflow/data_pipeline_gcp/.env
+
+understanding_airflow/data_pipeline_local/logs/
+understanding_airflow/data_pipeline_local/dags/__pycache__
+understanding_airflow/data_pipeline_local/plugins
+# understanding_airflow/data_pipeline_local/.env
+understanding_airflow/data_pipeline_local/ny_taxi_postgres_data
+understanding_airflow/data_pipeline_local/pgadmin
 
 # Local .terraform directories
 **/.terraform/*

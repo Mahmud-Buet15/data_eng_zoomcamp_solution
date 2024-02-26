@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+  postgres_db: 
+    image: postgres:13
+    container_name: postgres_container            #this will be used as host
+    environment:
+      POSTGRES_USER: mahmud
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: ny_taxi
+    user: '$UID:$GID'
+    volumes:
+       - ./ny_taxi_postgres_data:/var/lib/postgresql/data:rw           #adding read and write access to the volume
+    ports:
+      - "5432:5432"
+    networks:                         # to keep this container in the same network as airflow containers
+      - airflow               
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "ny_taxi", "-U", "mahmud" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+
+    
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "mahmud@admin.com" 
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    user: '$UID:$GID'                         # this fixed the permission denied error
+    volumes:
+       - ./pgadmin:/var/lib/pgadmin:rw  #adding read and write access to the volume
+    ports:
+      - 8081:80                         # we need to type localhost:8081 in browser of local machine
+    networks:                         
+      - airflow                         # to keep this container in the same network as airflow containers
+
+
+networks:
+  airflow:
+    name: airflow_network
+    external: true
